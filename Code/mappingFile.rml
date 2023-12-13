@@ -1,0 +1,126 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+
+<#CSVMapping>
+  a rr:TriplesMap;
+  rr:logicalTable [
+    rr:tableName "your_csv_file.csv";
+  ];
+
+  rr:subjectMap [
+    rr:template "http://example.org/films/{Series_Title}";
+    rr:class schema:Movie;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:name;
+    rr:objectMap [
+      rr:column "Series_Title";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:datePublished;
+    rr:objectMap [
+      rr:column "Released_Year";
+      rr:datatype xsd:integer;
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:contentRating;
+    rr:objectMap [
+      rr:column "Certificate";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:duration;
+    rr:objectMap [
+      rr:column "Runtime";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:genre;
+    rr:objectMap [
+      rr:column "Genre";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:aggregateRating;
+    rr:objectMap [
+      rr:column "IMDB_Rating";
+      rr:datatype xsd:float;
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:description;
+    rr:objectMap [
+      rr:column "Overview";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:aggregateRating;
+    rr:objectMap [
+      rr:column "Meta_score";
+      rr:datatype xsd:integer;
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:director;
+    rr:objectMap [
+      rr:column "Director";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:actor;
+    rr:objectMap [
+      rr:column "Star1";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:actor;
+    rr:objectMap [
+      rr:column "Star2";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:actor;
+    rr:objectMap [
+      rr:column "Star3";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:actor;
+    rr:objectMap [
+      rr:column "Star4";
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:aggregateRating;
+    rr:objectMap [
+      rr:column "No_of_Votes";
+      rr:datatype xsd:integer;
+    ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate schema:boxOffice;
+    rr:objectMap [
+      rr:column "Gross";
+    ];
+  ].
